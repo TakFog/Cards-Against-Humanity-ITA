@@ -1,17 +1,14 @@
-Il file cah-ita-originale-federico.tex contiene la versione di Cards Against Humanity tradotta da Federico e corretta e impaginata da Ilario.
-Per ricavare il testo dal pdf presente sul sito ufficiale sono stati utilizzati i seguenti comandi per Linux.
+# JSON Against Humanity - Italiano
 
-for i in `seq 1 31`; do echo processing page $i; convert -density 300 CAH_ItalianByFederico.pdf\[$(($i - 1 ))\] -background white -flatten +matte -colors 7 page$i.tif; done
+Carte italiane di [Cards Against Humanity](https://cardsagainsthumanity.com/) in JSON. Il formato è compatibile con [JSON Against Humanity](https://github.com/crhallberg/json-against-humanity/).
 
-for i in `seq 3 30`; do for l in `seq 0 4`; do for j in `seq 0 3`; do echo processing page $i vert $l oriz $j ; convert -crop 550x480+$(($j*600+95))+$(($l*600+170)) page$i.tif crop/page$i-$l-$j.tif; done; done; done
+## Sorgente
 
-for i in `seq 3 30`; do for l in `seq 0 4`; do for j in `seq 0 3`; do echo processing page $i vert $l oriz $j; tesseract -l eng+ita page$i-$l-$j.tif page$i-$l-$j; cat page$i-$l-$j.txt >> cah-ita.txt; echo "&" >> cah-ita.txt; done; echo "\\\\" >> cah-ita.txt; done; done
+I file json sono stati generati a partire dai file LaTeX di [Cards-Against-Humanity-ITA](https://github.com/ilario/Cards-Against-Humanity-ITA).
 
-Il file cah-ita-originale-federico-sfoltita.tex si basa sulla versione tradotta da Federico e ne differisce solo per la rimozione di alcune carte che sono peggiori della media.
+I file **cah-ita-originale-federico** contiene la versione di Cards Against Humanity tradotta da Federico e corretta e impaginata da Ilario.
 
-Il file cah-ita-espansione.tex è una espansione, non basata sulle espansioni ufficiali a pagamento.
+I file **cah-ita-originale-federico-sfoltita** si basano sulla versione tradotta da Federico e ne differiscono solo per la rimozione di alcune carte che sono peggiori della media.
 
-Il file cah-ita-espansione-cah42proj.tex è una espansione, basata sull'espansione di CaH42project.it.
-
-Il file cah-ita-espansione-cah42proj-sfoltita.tex è una espansione, basata sull'espansione di CaH42project.it ma modificata e in cui sono state tolte alcune carte.
+I file **cah-ita-espansione-cah42proj** sono basati sull'espansione di CaH42project.it.
 
